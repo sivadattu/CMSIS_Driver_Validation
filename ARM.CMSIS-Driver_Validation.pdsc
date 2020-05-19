@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.4.9" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>ARM</vendor>
+  <name>CMSIS-Driver_Validation</name>
+  <description>CMSIS-Driver Validation</description>
+  <url>http://www.keil.com/pack/</url>
+  <supportContact>http://silver.arm.com/support</supportContact>
+  <license>LICENSE.txt</license>
+  
+  <releases>
+    <release version="1.4.0.1" date="2020-05-19">
+      - Updated conditions to support Cortex-M55
+    </release>
+    <release version="1.4.0" date="2019-12-02">
+      - Updated conditions to support all Cortex-M devices
+      - Introduced test groups (each driver is organized in a group)
+      - Improved XSL for XML display
+      - Added SockServer application for PC running Microsoft Windows
+      - Added example for Inventek ISM43362 WiFi Driver testing on STMicroelectronics B-L475E-IOT01A1 board
+      - Added example for Inventek ISM43362 WiFi Driver testing using ISMART43362-E WiFi shield mounted on NXP LPCXpresso55S69 board
+      - Added examples for Espressif ESP8266 and ESP32 WiFi Driver testing with NXP MIMXRT1064-EVK board
+      - Added example for WIZnet WizFi360 WiFi Driver testing with NXP MIMXRT1064-EVK board
+      - Updated all examples
+      - Removed example for Atmel board
+      - Added upstream and downstream bandwidth testing to WiFi Driver testing
+    </release>
+    <release version="1.3.0" date="2019-10-04">
+      - Added WiFi Driver testing
+      - Updated component condition to accept both RTOS and RTOS2
+      - Updated documentation
+    </release>
+    <release version="1.2.0" date="2019-02-21">
+      migrated repository to github.com/arm-software/CMSIS-Driver_Validation repository
+      - Added CMSIS-RTOS2 and Arm Compiler 6 compatibility
+      - Updated CAN test (corrected test for SetBitrate function, added bitrate set for Loopback tests)
+      - Minor update to documentation
+      - Updated closeDebug function in DV_Framework.c, specified as noinline so higher optimization will keep it also
+    </release>
+    <release version="1.1.0" date="2016-04-25">
+      - Added USB Host test cases
+      - Added CAN test cases
+      - Added Ethernet Precision Time Protocol test cases
+      - Updated configuration file DV_Config.h to support new features
+    </release>
+    <release version="1.0.0" date="2015-10-09">
+      - Initial public release of the CMSIS-Driver Validation Suite
+    </release>
+  </releases>
+
+  <keywords>
+    <keyword>ARM</keyword>
+    <keyword>CMSIS-Driver</keyword>
+    <keyword>Driver validation</keyword>
+  </keywords>
+  
+  <examples>
+    <example name="CMSIS-Driver Validation" doc="Abstract.txt" folder="Boards/Keil/MCBSTM32F400">
+      <description>CMSIS-Driver Validation Example</description>
+      <board name="MCBSTM32F400" vendor="Keil"/>
+      <project>
+        <environment name="uv" load="CMSIS_DV.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS" Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="CMSIS" Cgroup="RTOS"/>
+        <component Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-Driver Validation" doc="Abstract.txt" folder="Boards/Keil/MCBSTM32F200">
+      <description>CMSIS-Driver Validation Example</description>
+      <board name="MCBSTM32F200" vendor="Keil"/>
+      <project>
+        <environment name="uv" load="CMSIS_DV.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS"  Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="CMSIS"  Cgroup="RTOS"/>
+        <component Cbundle="API"   Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-Driver WiFi Inventek ISM43362 Validation" doc="Abstract.txt" folder="Boards/ST/B-L475E-IOT01A1">
+      <description>CMSIS-Driver Validation of WiFi Inventek ISM43362 driver on STMicroelectronics B-L475E-IOT01A1 board</description>
+      <board name="B-L475E-IOT01A1" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="uv" load="CMSIS_DV.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS"  Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="CMSIS"  Cgroup="RTOS"/>
+        <component Cbundle="API"   Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+        <component Cclass="CMSIS Driver" Cgroup="WiFi" Csub="ISM43362"/>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-Driver Validation" doc="Abstract.txt" folder="Boards/ST/STM32F746G-Discovery">
+      <description>CMSIS-Driver Validation Example</description>
+      <board name="STM32F746G-Discovery" vendor="STMicroelectronics"/>
+      <project>
+        <environment name="uv" load="CMSIS_DV.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS"  Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="CMSIS"  Cgroup="RTOS"/>
+        <component Cbundle="API"   Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-Driver Validation" doc="Abstract.txt" folder="Boards/Infineon/XMC4500 Relax Lite Kit">
+      <description>CMSIS-Driver Validation Example</description>
+      <board name="XMC4500 Relax Lite Kit" vendor="Infineon"/>
+      <project>
+        <environment name="uv" load="CMSIS_DV.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS"  Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="CMSIS"  Cgroup="RTOS"/>
+        <component Cbundle="API"   Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-Driver WiFi Inventek ISM43362 Validation" doc="Abstract.txt" folder="Boards/Inventek/ISMART43362-E">
+      <description>CMSIS-Driver Validation of WiFi Inventek ISM43362 driver on ISMART43362-E WiFi shield with NXP LPCXpresso55S69 board</description>
+      <board name="LPCXpresso55S69" vendor="NXP"/>
+      <project>
+        <environment name="uv" load="CMSIS_DV.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS"  Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="CMSIS"  Cgroup="RTOS"/>
+        <component Cbundle="API"   Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+        <component Cclass="CMSIS Driver" Cgroup="WiFi" Csub="ISM43362"/>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-Driver WiFi Espressif ESP8266 Validation" doc="Abstract.txt" folder="Boards/Espressif/ESP8266EX_Arduino">
+      <description>CMSIS-Driver Validation of WiFi Espressif ESP8266 driver on Arduino compatible shield with NXP MIMXRT1064-EVK board</description>
+      <board name="EVK-MIMXRT1064" vendor="NXP"/>
+      <project>
+        <environment name="uv" load="CMSIS_DV.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS"  Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="CMSIS"  Cgroup="RTOS"/>
+        <component Cbundle="API"   Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+        <component Cclass="CMSIS Driver" Cgroup="WiFi" Csub="ESP8266"/>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-Driver WiFi Espressif ESP32 Validation" doc="Abstract.txt" folder="Boards/Espressif/ESP32_Arduino">
+      <description>CMSIS-Driver Validation of WiFi Espressif ESP32 driver on Arduino compatible shield with NXP MIMXRT1064-EVK board</description>
+      <board name="EVK-MIMXRT1064" vendor="NXP"/>
+      <project>
+        <environment name="uv" load="CMSIS_DV.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS"  Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="CMSIS"  Cgroup="RTOS"/>
+        <component Cbundle="API"   Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+        <component Cclass="CMSIS Driver" Cgroup="WiFi" Csub="ESP32"/>
+      </attributes>
+    </example>
+
+    <example name="CMSIS-Driver WiFi WIZnet WizFi360 Validation" doc="Abstract.txt" folder="Boards/WIZnet/WizFi360-EVB">
+      <description>CMSIS-Driver Validation of WiFi WIZnet WizFi360 driver on Arduino compatible shield with NXP MIMXRT1064-EVK board</description>
+      <board name="EVK-MIMXRT1064" vendor="NXP"/>
+      <project>
+        <environment name="uv" load="CMSIS_DV.uvprojx"/>
+      </project>
+      <attributes>
+        <component Cclass="CMSIS"  Cgroup="CORE"/>
+        <component Cclass="Device" Cgroup="Startup"/>
+        <component Cclass="CMSIS"  Cgroup="RTOS"/>
+        <component Cbundle="API"   Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+        <component Cclass="CMSIS Driver" Cgroup="WiFi" Csub="WizFi360"/>
+      </attributes>
+    </example>
+  </examples>
+  
+  <conditions>
+    <condition id="Cortex-M Device">
+      <description>Cortex-M processor based device: Cortex-M0, Cortex-M0+, Cortex-M1, Cortex-M3, Cortex-M4, Cortex-M7, Cortex-M23, Cortex-M33, Cortex-M55, SC000 or SC3000</description>
+      <accept Dcore="Cortex-M0"/>
+      <accept Dcore="Cortex-M0+"/>
+      <accept Dcore="Cortex-M1"/>
+      <accept Dcore="Cortex-M3"/>
+      <accept Dcore="Cortex-M4"/>
+      <accept Dcore="Cortex-M7"/>
+      <accept Dcore="Cortex-M23"/>
+      <accept Dcore="Cortex-M33"/>
+	  <accept Dcore="Cortex-M55"/>
+      <accept Dcore="ARMV8MBL"/>
+      <accept Dcore="ARMV8MML"/>
+      <accept Dcore="SC000"/>
+      <accept Dcore="SC300"/>
+    </condition>
+
+    <condition id="CMSIS Core with RTOS and STDOUT">
+      <description>CMSIS Core with RTOS for Cortex-M processor</description>
+      <accept condition="Cortex-M Device"/>
+      <require Cclass="CMSIS" Cgroup="CORE"/>
+      <accept Cclass="CMSIS" Cgroup="RTOS"/>
+      <accept Cclass="CMSIS" Cgroup="RTOS2"/>
+      <require Cclass="Compiler" Cgroup="I/O" Csub="STDOUT"/>
+    </condition>
+
+    <condition id="CMSIS Driver Validation SPI">
+      <description>CMSIS Driver SPI</description>
+      <require condition="CMSIS Core with RTOS and STDOUT"/>
+      <require Cclass="CMSIS Driver" Cgroup="SPI"/>
+      <require Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+    </condition>
+
+    <condition id="CMSIS Driver Validation I2C">
+      <description>CMSIS Driver I2C</description>
+      <require condition="CMSIS Core with RTOS and STDOUT"/>
+      <require Cclass="CMSIS Driver" Cgroup="I2C"/>
+      <require Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+    </condition>
+
+    <condition id="CMSIS Driver Validation ETH">
+      <description>CMSIS Driver Ethernet</description>
+      <require condition="CMSIS Core with RTOS and STDOUT"/>
+      <accept Cclass="CMSIS Driver" Cgroup="Ethernet"/>
+      <accept Cclass="CMSIS Driver" Cgroup="Ethernet MAC"/>
+      <require Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+    </condition>
+
+    <condition id="CMSIS Driver Validation USART">
+      <description>CMSIS Driver USART</description>
+      <require condition="CMSIS Core with RTOS and STDOUT"/>
+      <require Cclass="CMSIS Driver" Cgroup="USART"/>
+      <require Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+    </condition>
+
+    <condition id="CMSIS Driver Validation MCI">
+      <description>CMSIS Driver MCI</description>
+      <require condition="CMSIS Core with RTOS and STDOUT"/>
+      <require Cclass="CMSIS Driver" Cgroup="MCI"/>
+      <require Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+    </condition>
+
+    <condition id="CMSIS Driver Validation USBD">
+      <description>CMSIS Driver USB Device</description>
+      <require condition="CMSIS Core with RTOS and STDOUT"/>
+      <require Cclass="CMSIS Driver" Cgroup="USB Device"/>
+      <require Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+    </condition>
+
+    <condition id="CMSIS Driver Validation USBH">
+      <description>CMSIS Driver USB Host</description>
+      <require condition="CMSIS Core with RTOS and STDOUT"/>
+      <require Cclass="CMSIS Driver" Cgroup="USB Host"/>
+      <require Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+    </condition>
+
+    <condition id="CMSIS Driver Validation CAN">
+      <description>CMSIS Driver CAN</description>
+      <require condition="CMSIS Core with RTOS and STDOUT"/>
+      <require Cclass="CMSIS Driver" Cgroup="CAN"/>
+      <require Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+    </condition>
+
+    <condition id="CMSIS Driver Validation WiFi">
+      <description>CMSIS Driver WiFi</description>
+      <require condition="CMSIS Core with RTOS and STDOUT"/>
+      <require Cclass="CMSIS Driver" Cgroup="WiFi"/>
+      <require Cbundle="API" Cclass="CMSIS Driver Validation" Cgroup="Framework"/>
+    </condition>
+  </conditions>  
+
+  <components>  
+    <bundle Cbundle="API" Cclass="CMSIS Driver Validation" Cversion="1.4.0.1">  
+      <description>Run driver validation test for enabled drivers</description>
+      <doc>Documentation/html/index.html</doc>
+
+      <component Cgroup="Framework" condition="CMSIS Core with RTOS and STDOUT">
+        <description>Test framework</description>
+        <files>
+          <file category="doc"     name="Documentation/html/index.html" />
+          <file category="include" name="Include/"/>
+          <file category="header"  name="Source/Config/DV_Config.h" attr="config" version = "1.2.2"/>
+          <file category="source"  name="Source/cmsis_dv.c"/>
+          <file category="header"  name="Include/cmsis_dv.h"/>
+          <file category="source"  name="Source/DV_Framework.c"/>
+          <file category="source"  name="Source/DV_Report.c"/>
+        </files>
+      </component>
+
+      <component Cgroup="SPI" condition="CMSIS Driver Validation SPI">        
+        <description>SPI driver validation</description>
+        <RTE_Components_h>
+          #define RTE_CMSIS_DV_SPI        /* Driver Validation SPI enabled */
+        </RTE_Components_h>
+        <files>
+          <file category="doc"    name="Documentation/html/group__spi__funcs.html" />
+          <file category="source" name="Source/DV_SPI.c"/>
+        </files>
+      </component>
+
+      <component Cgroup="I2C" condition="CMSIS Driver Validation I2C">  
+        <description>I2C driver validation</description>
+        <RTE_Components_h>
+          #define RTE_CMSIS_DV_I2C        /* Driver Validation I2C enabled */
+        </RTE_Components_h>
+        <files>
+          <file category="doc"    name="Documentation/html/group__i2c__funcs.html" />
+          <file category="source" name="Source/DV_I2C.c"/>
+        </files>
+      </component>
+
+      <component Cgroup="USART" condition="CMSIS Driver Validation USART">  
+        <description>USART driver validation</description>
+        <RTE_Components_h>
+          #define RTE_CMSIS_DV_USART      /* Driver Validation USART enabled */
+        </RTE_Components_h>
+        <files>
+          <file category="doc"    name="Documentation/html/group__usart__funcs.html" />
+          <file category="source" name="Source/DV_USART.c"/>
+        </files>
+      </component>
+
+      <component Cgroup="Ethernet" condition="CMSIS Driver Validation ETH">
+        <description>Ethernet driver validation</description>
+        <RTE_Components_h>
+          #define RTE_CMSIS_DV_ETH        /* Driver Validation Ethernet enabled */
+        </RTE_Components_h>
+        <files>
+          <file category="doc"    name="Documentation/html/group__eth__funcs.html" />
+          <file category="source" name="Source/DV_ETH.c"/>
+        </files>
+      </component>
+
+      <component Cgroup="MCI" condition="CMSIS Driver Validation MCI">
+        <description>MCI driver validation</description>
+        <RTE_Components_h>
+          #define RTE_CMSIS_DV_MCI        /* Driver Validation MCI enabled */
+        </RTE_Components_h>
+        <files>
+          <file category="doc"    name="Documentation/html/group__mci__funcs.html" />
+          <file category="source" name="Source/DV_MCI.c"/>
+        </files>
+      </component>
+
+      <component Cgroup="USB Device" condition="CMSIS Driver Validation USBD">
+        <description>USB Device driver validation</description>
+        <RTE_Components_h>
+          #define RTE_CMSIS_DV_USBD       /* Driver Validation USB Device enabled */
+        </RTE_Components_h>
+        <files>
+          <file category="doc"    name="Documentation/html/group__usbd__funcs.html" />
+          <file category="source" name="Source/DV_USBD.c"/>
+        </files>
+      </component>
+
+      <component Cgroup="USB Host" condition="CMSIS Driver Validation USBH">
+        <description>USB Host driver validation</description>
+        <RTE_Components_h>
+          #define RTE_CMSIS_DV_USBH       /* Driver Validation USB Host enabled */
+        </RTE_Components_h>
+        <files>
+          <file category="doc"    name="Documentation/html/group__usbh__funcs.html" />
+          <file category="source" name="Source/DV_USBH.c"/>
+        </files>
+      </component>
+
+      <component Cgroup="CAN" condition="CMSIS Driver Validation CAN">
+        <description>CAN driver validation</description>
+        <RTE_Components_h>
+          #define RTE_CMSIS_DV_CAN        /* Driver Validation CAN enabled */
+        </RTE_Components_h>
+        <files>
+          <file category="doc"    name="Documentation/html/group__can__funcs.html" />
+          <file category="source" name="Source/DV_CAN.c"/>
+        </files>
+      </component>
+
+      <component Cgroup="WiFi" condition="CMSIS Driver Validation WiFi">
+        <description>WiFi driver validation</description>
+        <RTE_Components_h>
+          #define RTE_CMSIS_DV_WIFI       /* Driver Validation WiFi enabled */
+        </RTE_Components_h>
+        <files>
+          <file category="doc"    name="Documentation/html/group__wifi__funcs.html" />
+          <file category="source" name="Source/DV_WIFI.c"/>
+        </files>
+      </component>
+    </bundle>
+  </components> <!-- end of components sections -->
+</package>
