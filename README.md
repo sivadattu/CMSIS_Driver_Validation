@@ -1,3 +1,5 @@
+Made Modificarion in ARM.CMSIS-Driver_Validation.pdsc file to be compatible for Cortex M55
+original copy can be find at http://arm-software.github.io/CMSIS-Driver_Validation/html/index.html
 # CMSIS Driver Validation
 
 The branch *master* of this GitHub repository contains the CMSIS-Driver Validation Version 1.2.0.  The [documentation](http://arm-software.github.io/CMSIS-Driver_Validation/html/index.html) is available under 
