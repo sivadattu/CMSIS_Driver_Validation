@@ -13,8 +13,7 @@ SET ZIPPATH=C:\Program Files\7-Zip
 SET DOXYGENPATH=C:\Program Files\doxygen\bin
 
 :: Tool path for mscgen utility
-:: SET MSCGENPATH=C:\Program Files (x86)\Mscgen
-SET MSCGENPATH=C:\Users\sof-fpga\Downloads\mscgen-w32-0.20\mscgen-0.20\bin
+SET MSCGENPATH=C:\Program Files (x86)\Mscgen
 
 :: These settings should be passed on to subprocesses as well
 SET PATH=%ZIPPATH%;%DOXYGENPATH%;%MSCGENPATH%;%PATH%
